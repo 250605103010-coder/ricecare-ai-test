@@ -1,8 +1,3 @@
-"""
-RiceCare AI — Home
-Main entry point for the multipage Streamlit application.
-"""
-
 import streamlit as st
 
 from utils import styling
@@ -15,27 +10,61 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-styling.inject_global_css()
+# ================= GOOGLE LOGIN =================
+
+if not st.user.is_logged_in:
+
+    st.markdown(
+        """
+        <div style="text-align:center; margin-top:120px;">
+            <h1>🌾 RiceCare AI</h1>
+            <h3>AI-Powered Rice Disease & Molecular Insights</h3>
+            <p>Please sign in with your Google account to continue.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col2:
+        if st.button(
+            "🔐 Continue with Google",
+            use_container_width=True
+        ):
+            st.login("google")
+
+    st.stop()
+
 
 # ================= SIDEBAR =================
 
 with st.sidebar:
     st.markdown("### 🌾 RiceCare AI")
-    st.caption(
-        "AI-powered rice disease detection, "
-        "agro solutions and bioinformatics research."
-    )
+
+    st.success("✅ Logged in")
+
+    if st.user.name:
+        st.write(f"👤 **{st.user.name}**")
+
+    if st.user.email:
+        st.caption(st.user.email)
 
     if is_demo_mode():
         st.warning(
             "⚙️ Demo Mode\n\n"
-            "No trained model found in `/model`. "
-            "Predictions currently use demo mode."
+            "No trained model found in `/model`."
         )
     else:
-        st.success("✅ Trained model loaded")
+        st.success("🤖 Trained model loaded")
 
-# ================= HERO =================
+    if st.button("🚪 Logout", use_container_width=True):
+        st.logout()
+
+
+# ================= MAIN PAGE =================
+
+styling.inject_global_css()
 
 styling.hero(
     "🌾 RiceCare AI",
@@ -46,16 +75,18 @@ styling.hero(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ================= THREE INTERFACES =================
+# ================= INTERFACES =================
 
 st.markdown("## Choose Your Interface")
 st.caption("Select the area you want to explore.")
 
 col1, col2, col3 = st.columns(3)
 
-# ================= FARMER =================
+
+# ================= FARMER CARE =================
 
 with col1:
+
     st.markdown(
         """
         <div class="rc-card">
@@ -69,12 +100,17 @@ with col1:
         unsafe_allow_html=True,
     )
 
-    if st.button("📷 Enter Farmer Care", use_container_width=True):
-        st.switch_page("pages/Analyze_My_Plant.py")
+    if st.button(
+        "📷 Enter Farmer Care",
+        use_container_width=True
+    ):
+        st.switch_page("Analyze_My_Plant.py")
+
 
 # ================= AGRO SOLUTIONS =================
 
 with col2:
+
     st.markdown(
         """
         <div class="rc-card">
@@ -88,12 +124,17 @@ with col2:
         unsafe_allow_html=True,
     )
 
-    if st.button("🌱 Explore Solutions", use_container_width=True):
+    if st.button(
+        "🌱 Explore Solutions",
+        use_container_width=True
+    ):
         st.switch_page("pages/3_Agro_Solutions.py")
+
 
 # ================= AGRO RESEARCH =================
 
 with col3:
+
     st.markdown(
         """
         <div class="rc-card">
@@ -107,12 +148,16 @@ with col3:
         unsafe_allow_html=True,
     )
 
-    if st.button("🔬 Enter Agro Research", use_container_width=True):
+    if st.button(
+        "🔬 Enter Agro Research",
+        use_container_width=True
+    ):
         st.switch_page("pages/3_Molecular_Information.py")
 
-st.markdown("<br><br>", unsafe_allow_html=True)
 
 # ================= WORKFLOW =================
+
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 st.markdown("## 🔬 How RiceCare AI Connects Everything")
 
@@ -121,11 +166,12 @@ styling.flow_diagram(
         "🌾 Rice Plant",
         "🤖 AI Detection",
         "🌱 Agro Solutions",
-        "🧬 Molecular Research",
+        "🧬 Agro Research",
     ]
 )
 
-# ================= HIGHLIGHTS =================
+
+# ================= PROJECT HIGHLIGHTS =================
 
 st.markdown("## Project Highlights")
 
@@ -186,6 +232,9 @@ with h4:
         """,
         unsafe_allow_html=True,
     )
+
+
+# ================= FOOTER =================
 
 st.markdown("<br>", unsafe_allow_html=True)
 
