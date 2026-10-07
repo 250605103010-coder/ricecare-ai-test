@@ -10,45 +10,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ================= GOOGLE LOGIN =================
-
-if not st.user.is_logged_in:
-
-    st.markdown(
-        """
-        <div style="text-align:center; margin-top:120px;">
-            <h1>🌾 RiceCare AI</h1>
-            <h3>AI-Powered Rice Disease & Molecular Insights</h3>
-            <p>Please sign in with your Google account to continue.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    col1, col2, col3 = st.columns([1, 2, 1])
-
-    with col2:
-        if st.button(
-            "🔐 Continue with Google",
-            use_container_width=True
-        ):
-            st.login("google")
-
-    st.stop()
-
+styling.inject_global_css()
 
 # ================= SIDEBAR =================
 
 with st.sidebar:
     st.markdown("### 🌾 RiceCare AI")
-
-    st.success("✅ Logged in")
-
-    if st.user.name:
-        st.write(f"👤 **{st.user.name}**")
-
-    if st.user.email:
-        st.caption(st.user.email)
+    st.caption(
+        "AI-powered rice disease detection, "
+        "agro solutions and bioinformatics research."
+    )
 
     if is_demo_mode():
         st.warning(
@@ -56,15 +27,10 @@ with st.sidebar:
             "No trained model found in `/model`."
         )
     else:
-        st.success("🤖 Trained model loaded")
-
-    if st.button("🚪 Logout", use_container_width=True):
-        st.logout()
+        st.success("✅ Trained model loaded")
 
 
-# ================= MAIN PAGE =================
-
-styling.inject_global_css()
+# ================= HERO =================
 
 styling.hero(
     "🌾 RiceCare AI",
@@ -75,7 +41,8 @@ styling.hero(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ================= INTERFACES =================
+
+# ================= THREE INTERFACES =================
 
 st.markdown("## Choose Your Interface")
 st.caption("Select the area you want to explore.")
