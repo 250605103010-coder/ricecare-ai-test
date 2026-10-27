@@ -71,7 +71,7 @@ with col1:
         "📷 Enter Farmer Care",
         use_container_width=True
     ):
-        st.switch_page("Analyze_My_Plant.py")
+        st.switch_page("pages/Analyze_My_Plant.py")
 
 
 # ================= AGRO SOLUTIONS =================
@@ -95,7 +95,7 @@ with col2:
         "🌱 Explore Solutions",
         use_container_width=True
     ):
-        st.switch_page("pages/3_Agro_Solutions.py")
+        st.info("🌱 Agro Solutions is coming soon.")
 
 
 # ================= AGRO RESEARCH =================
