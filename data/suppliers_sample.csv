@@ -1,0 +1,5 @@
+supplier_id,supplier_name,focus,location,contact,verification_status,data_label
+SUP01,SAMPLE Supplier A (not a real business),Seeds,,,NOT_VERIFIED,SAMPLE_NOT_REAL
+SUP02,SAMPLE Supplier B (not a real business),Fertilizers,,,NOT_VERIFIED,SAMPLE_NOT_REAL
+SUP03,SAMPLE Supplier C (not a real business),Equipment and irrigation,,,NOT_VERIFIED,SAMPLE_NOT_REAL
+SUP04,SAMPLE Supplier D (not a real business),Soil and plant testing,,,NOT_VERIFIED,SAMPLE_NOT_REAL

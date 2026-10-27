@@ -1,0 +1,5 @@
+expert_id,display_name,specialty,institution,verification_status,data_label
+EXP01,SAMPLE Expert 1 (not a real person),Plant pathology,,SAMPLE_NOT_REAL,SAMPLE_NOT_REAL
+EXP02,SAMPLE Expert 2 (not a real person),Soil science,,SAMPLE_NOT_REAL,SAMPLE_NOT_REAL
+EXP03,SAMPLE Expert 3 (not a real person),Agronomy,,SAMPLE_NOT_REAL,SAMPLE_NOT_REAL
+EXP04,SAMPLE Expert 4 (not a real person),Rice genetics,,SAMPLE_NOT_REAL,SAMPLE_NOT_REAL

@@ -1,0 +1,8 @@
+stage_id,stage_order,stage,key_activities,disease_watch,timing_note,data_label
+STG01,1,Nursery / seedling,"Seed treatment, nursery management, seedling care",Blast and brown spot on seedlings; seed-borne problems,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG02,2,Transplanting / early establishment,"Field preparation, planting, early water management",Check seedlings before planting; bacterial blight can start from infected seedlings,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG03,3,Tillering,"Weeding, nutrient top-up based on soil test, scouting",Leaf blast and bacterial leaf blight often reported at this stage,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG04,4,Panicle initiation / booting,"Scouting, water management",Watch leaf diseases; avoid excess nitrogen,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG05,5,Flowering,"Water management, scouting",Neck and panicle blast risk,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG06,6,Grain filling,"Scouting, avoid water stress",Brown spot on grains and leaves,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED
+STG07,7,Maturity / harvest,"Harvest at the right time, safe drying and storage",Record disease seen during the season,Duration depends on variety and season; not given here,GENERAL_KNOWLEDGE_UNVERIFIED

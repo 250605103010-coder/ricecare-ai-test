@@ -1,0 +1,9 @@
+resource_id,name,type,url,use,data_label
+RES01,UniProt,Protein database,https://www.uniprot.org/,Protein sequences and annotation,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES02,NCBI BLAST,Sequence search,https://blast.ncbi.nlm.nih.gov/,Search a sequence against public databases,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES03,RCSB Protein Data Bank,Protein structures,https://www.rcsb.org/,Experimentally determined 3D structures,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES04,AlphaFold Protein Structure Database,Predicted structures,https://alphafold.ebi.ac.uk/,"Predicted 3D structures. Predictions, not experiments",REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES05,InterPro,Protein domains,https://www.ebi.ac.uk/interpro/,Protein families and domains,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES06,Gramene,Plant genomics,https://www.gramene.org/,Plant comparative genomics including rice,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES07,IRRI Rice Knowledge Bank,Rice agronomy,https://knowledgebank.irri.org/,Rice growing information,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING
+RES08,Clustal Omega (EMBL-EBI),Multiple sequence alignment,VERIFY_URL,Alignment tool; confirm the current address on the EBI site,REAL_PUBLIC_RESOURCE_LINK_CHECK_BEFORE_PUBLISHING

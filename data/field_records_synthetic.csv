@@ -1,0 +1,7 @@
+record_id,field_name,date,stage,activity,note,data_label
+REC01,SYNTHETIC Field A,2026-06-10,Nursery / seedling,Seed sown,Synthetic row for interface testing,SYNTHETIC
+REC02,SYNTHETIC Field A,2026-07-05,Transplanting / early establishment,Transplanted,Synthetic row for interface testing,SYNTHETIC
+REC03,SYNTHETIC Field A,2026-07-28,Tillering,Weeding,Synthetic row for interface testing,SYNTHETIC
+REC04,SYNTHETIC Field A,2026-08-15,Tillering,Scouting - no symptoms noted,Synthetic row for interface testing,SYNTHETIC
+REC05,SYNTHETIC Field A,2026-09-10,Panicle initiation / booting,Water management,Synthetic row for interface testing,SYNTHETIC
+REC06,SYNTHETIC Field A,2026-10-05,Flowering,Scouting,Synthetic row for interface testing,SYNTHETIC

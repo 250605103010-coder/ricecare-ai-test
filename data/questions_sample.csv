@@ -1,0 +1,9 @@
+question_id,question_text,language,moderation_status,answer_status,data_label
+QST01,How can I tell blast from brown spot on a leaf?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST02,When is the best time to take a soil sample?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST03,What should I record in a field diary?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST04,Are neem sprays safe to use on rice?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST05,How do I find out which pesticides are registered for rice?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST06,Which government schemes help with soil testing?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST07,Why are the lower leaves of my plants turning yellow?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL
+QST08,How do I send a leaf photo to an expert?,en,SAMPLE_NOT_MODERATED,NO_ANSWER,SAMPLE_NOT_REAL

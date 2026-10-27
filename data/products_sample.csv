@@ -1,0 +1,11 @@
+product_id,category,product_name,supplier_id,supplier_claim,registration_status,price_inr,availability,verified,data_label
+PRD01,Seeds,SAMPLE rice seed listing (not a real product),SUP01,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD02,Seeds,SAMPLE second seed listing (not a real product),SUP01,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD03,Fertilizer,SAMPLE nutrient product (not a real product),SUP02,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD04,Soil improvement,SAMPLE soil conditioner (not a real product),SUP02,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD05,Chemical crop protection,SAMPLE chemical product (not a real product),SUP02,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD06,Biological crop protection,SAMPLE bioagent product (not a real product),SUP02,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD07,Natural plant care,SAMPLE plant-extract product (not a real product),SUP02,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD08,Machinery,SAMPLE hand sprayer (not a real product),SUP03,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD09,Irrigation,SAMPLE drip kit (not a real product),SUP03,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
+PRD10,Testing service,SAMPLE soil test service (not a real product),SUP04,Unverified supplier claim (sample text),SAMPLE - no real registration,,UNKNOWN,false,SAMPLE_NOT_REAL
