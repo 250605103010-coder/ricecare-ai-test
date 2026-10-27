@@ -95,7 +95,7 @@ with col2:
         "🌱 Explore Solutions",
         use_container_width=True
     ):
-        st.info("🌱 Agro Solutions is coming soon.")
+        st.switch_page("pages/3_Agro_Solutions.py")
 
 
 # ================= AGRO RESEARCH =================
