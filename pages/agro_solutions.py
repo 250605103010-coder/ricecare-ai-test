@@ -13,7 +13,7 @@ st.caption("General information on rice disease management, nutrients and farm s
 st.warning(
     "**Read first.** This is general information, **not a prescription** and not checked by an "
     "agricultural expert yet. An AI result from a photo is only a prediction, so confirm the problem "
-    "with a local agriculture officer before treating. No doses, prices or product names are given here."
+    "with a local agriculture officer before treating. No doses are given here."
 )
 
 
@@ -96,24 +96,66 @@ with tab_schemes:
                 st.caption(f"Official website: {portal}")
             st.caption(f"{r['verification_status']}")
 
-# ---------------- SUPPLIERS & PRODUCTS (SAMPLE) ----------------
-with tab_market:
-    st.error("**SAMPLE DATA ONLY.** The suppliers and products below are fictional placeholders to "
-             "test the page. They are not real businesses, and no prices or registrations are shown.")
-    sup = advanced_data.load_suppliers()
-    prod = advanced_data.load_products()
-    if sup.empty or prod.empty:
-        st.error("Sample supplier or product files were not found in `data/advanced/`.")
+# ---------------- SUPPLIERS & PRODUCTS ----------------
+def real_product_card(r, supplier):
+    verified = str(r["verified"]).strip().lower() == "true"
+    badge = ("<span class='rc-badge'>Details verified</span>" if verified else
+             "<span class='rc-badge rc-badge-gold'>Supplier claim, not verified</span>")
+    if r["price_inr"].strip():
+        src = r["price_source"].strip() or "source not stated"
+        when = r["last_checked"].strip() or "date not stated"
+        price = f"₹{esc(r['price_inr'])} {esc(r['price_unit'])} (source: {esc(src)}, checked: {esc(when)})"
     else:
-        cats = ["All"] + sorted(prod["category"].unique())
-        cat = st.selectbox("Product category", cats)
-        shown = prod if cat == "All" else prod[prod["category"] == cat]
-        names = dict(zip(sup["supplier_id"], sup["supplier_name"]))
+        price = "Not listed"
+    reg = r["registration_number"].strip() or "Not provided"
+    st.markdown(
+        f"""
+        <div class="rc-card" style="margin-bottom:0.8rem; height:auto;">
+            <h4>{esc(r['product_name'])}</h4>
+            <p><b>Category:</b> {esc(r['category'])} &nbsp;|&nbsp; <b>Supplier:</b> {esc(supplier)}</p>
+            <p><b>Price:</b> {price}</p>
+            <p><b>Availability:</b> {esc(r['availability'] or 'Unknown')} &nbsp;|&nbsp;
+               <b>Registration no.:</b> {esc(reg)}</p>
+            <p><b>Supplier says:</b> {esc(r['supplier_claim'] or 'Nothing stated')}</p>
+            {badge}
+            <span class="rc-badge rc-badge-teal">{esc(r['data_label'])}</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+with tab_market:
+    real_sup, real_prod = advanced_data.load_real_listings()
+
+    if not real_prod.empty:
+        st.info("Listings below were entered by the RiceCare AI team. Prices and claims come from the "
+                "stated source and may be out of date. Registration numbers should be checked on the "
+                "official registry before buying.")
+        cats = ["All"] + sorted(real_prod["category"].unique())
+        cat = st.selectbox("Product category", cats, key="real_cat")
+        shown = real_prod if cat == "All" else real_prod[real_prod["category"] == cat]
+        names = dict(zip(real_sup["supplier_id"], real_sup["supplier_name"]))
         for _, r in shown.iterrows():
-            st.markdown(f"**{esc(r['product_name'])}**")
-            st.caption(f"Category: {r['category']} · Supplier: {names.get(r['supplier_id'], 'unknown')}")
-            st.caption("Claim: " + r["supplier_claim"] + " · Price: not listed · Registration: sample only · "
-                       "Verified: no")
+            real_product_card(r, names.get(r["supplier_id"], "unknown"))
+    else:
+        st.error("**SAMPLE DATA ONLY.** No real listings have been added yet. The suppliers and products "
+                 "below are fictional placeholders to test the page. They are not real businesses, and "
+                 "no prices or registrations are shown.")
+        sup = advanced_data.load_suppliers()
+        prod = advanced_data.load_products()
+        if sup.empty or prod.empty:
+            st.error("Sample supplier or product files were not found in `data/advanced/`.")
+        else:
+            cats = ["All"] + sorted(prod["category"].unique())
+            cat = st.selectbox("Product category", cats)
+            shown = prod if cat == "All" else prod[prod["category"] == cat]
+            names = dict(zip(sup["supplier_id"], sup["supplier_name"]))
+            for _, r in shown.iterrows():
+                st.markdown(f"**{esc(r['product_name'])}**")
+                st.caption(f"Category: {r['category']} · Supplier: {names.get(r['supplier_id'], 'unknown')}")
+                st.caption("Claim: " + r["supplier_claim"] + " · Price: not listed · Registration: sample only · "
+                           "Verified: no")
 
 styling.disclaimer()
 styling.footer()
