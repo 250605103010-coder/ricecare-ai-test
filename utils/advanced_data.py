@@ -13,6 +13,10 @@ ADV_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "advanced"
 )
 
+LISTINGS_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "listings"
+)
+
 # Order and display names for the treatment categories. Kept separate on purpose.
 CATEGORY_LABELS = {
     "CHEMICAL": "🧪 Chemical",
@@ -63,3 +67,25 @@ def load_products():
 
 def is_sample_label(label: str) -> bool:
     return str(label).startswith(("SAMPLE", "SYNTHETIC"))
+
+
+def _read_listing(name):
+    path = os.path.join(LISTINGS_DIR, name)
+    if not os.path.exists(path):
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def load_real_listings():
+    """Returns (suppliers, products) for REAL listings. Only suppliers who agreed
+    to be listed (consent_to_list = yes) and their products are returned."""
+    sup = _read_listing("suppliers.csv")
+    prod = _read_listing("products.csv")
+    if sup.empty or prod.empty:
+        return pd.DataFrame(), pd.DataFrame()
+    sup = sup[sup["consent_to_list"].str.strip().str.lower() == "yes"]
+    prod = prod[prod["supplier_id"].isin(sup["supplier_id"])]
+    return sup, prod
